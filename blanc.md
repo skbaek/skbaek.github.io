@@ -1,5 +1,7 @@
 # Blanc
 
+[GitHub repo](https://github.com/skbaek/blanc)
+
 ## What is it?
 
 Blanc is an EVM programming language designed for ease of formal verification.
