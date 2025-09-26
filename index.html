@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Baek Seulkee</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baek Seulkee</title>
+    <style>
+        body {
+            /* Set a max-width for better readability on very wide screens */
+            max-width: 800px;
+            margin: 0 auto; /* Center the content */
+            padding: 20px; /* Add some space around the edges */
+            font-family: sans-serif; /* A fallback font */
+
+            /* The magic line for fluid font size! */
+            font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
+            line-height: 1.6;
+        }
+
+        h1 {
+            /* You can make headings larger relative to the body font */
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+    </style>
 </head>
+
 <body>
   <p><a href="me.html">About me</a></p>
   <p>Projects</p>
   <ul>
+    <li><p><a href="blanc.html">Blanc</a></p> </li>
     <li><p><a href="elevm.html">ELEVM</a></p></li>
-    <li> <p><a href="blanc.html">Blanc</a></p> </li>
   </ul>
 </body>
 </html>
