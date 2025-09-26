@@ -4,9 +4,9 @@
 
 Executable Lean EVM (ELEVM) is an implementation of the Ethereum Virtual Machine 
 (EVM) in the Lean 4 theorem prover. ELEVM can run EVM state tests in the standard JSON 
-format of Ethereum's [execution spec tests](https://github.com/ethereum/execution-spec-tests). 
-It passes all general state tests for the Prague fork generated & used by the 
-latest mainnet version[^1] of [execution-specs](https://github.com/ethereum/execution-specs).
+format of [execution spec tests](https://github.com/ethereum/execution-spec-tests). 
+It passes all general state tests used by the latest version[^1] of 
+[execution-specs](https://github.com/ethereum/execution-specs) on the `mainnet` branch.
 
 ELEVM puts strong emphasis on executability because it is the best way to achieve 
 high confidence in its correctness. Formally verifying smart contracts against a 
