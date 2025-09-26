@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>elevm</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+body {
+
+max-width: min(90%, 1400px);
+
+margin: 0 auto;
+
+font-size: 1.4em;
+
+line-height: 1.6;
+}</style>
+</head>
+<body>
+<h1 id="elevm">ELEVM</h1>
+<p>Executable Lean EVM (ELEVM) is an implementation of the Ethereum
+Virtual Machine (EVM) in the Lean 4 theorem prover. ELEVM can run EVM
+state tests in the standard JSON format of Ethereum’s <a href="https://github.com/ethereum/execution-spec-tests">execution spec
+tests</a>. It passes all general state tests for the Prague fork
+generated &amp; used by the latest mainnet version<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of
+<a href="https://github.com/ethereum/execution-specs">execution-specs</a>.</p>
+<p>ELEVM puts strong emphasis on executability because it is the best
+way to achieve high confidence in its correctness. Formally verifying
+smart contracts against a definition of EVM won’t do much good if the
+EVM definition itself contains errors. Unfortunately, EVM contains too
+many moving parts and edge cases for manual inspection — you can’t just
+‘squint really hard’ for a few minutes to satisfy yourself the
+definitions are all correct as you would for, say, a formalization of
+Euclidean geometry. The closest we can get to 100% confidence is making
+the specification executable, so that its output can be compared against
+both comprehensive test sets and output from other implementations.</p>
+<p>ELEVM first began as an effort to replace the old EVM definition in
+<a href="https://github.com/skbaek/blanc/">Blanc</a>. Since the
+formalization is application-agnostic and can be useful for other
+purposes, it was spun off as a separate library.</p>
+<p>One notable feature of ELEVM is that it is completely self contained
+in Lean 4. It uses no foreign function interface with external libraries
+written in C or other langauges. Its only dependency is Lean’s generic
+<a href="https://github.com/leanprover-community/mathlib4">mathematics
+library</a>. In particular, all hash functions and elliptic curve
+cryptography used by ELEVM is implemented natively in Lean 4. Although
+this design choice was mainly motivated by convenience of maintenance
+and personal curiosity (and makes ELEVM unsuitable for powering an
+actual Ethereum client), it could be useful for projects that need to
+reason about the properties of such functions. Note that some parts of
+precompiled contracts and their related cryptographic functions remain
+unimplemented, because they were not necessary for passing the latest
+set of state tests from execution-specs. These are are slated for future
+work.</p>
+<p>Unless otherwise noted, most of ELEVM is ported from the Python
+codebase of execution-specs.</p>
+<aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>As of 2025/09/19, commit <a href="https://github.com/ethereum/execution-specs/tree/4198b9c5996713b268aed602739d5aa40e277694"><code>4198...7694</code></a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
+</body>
+</html>

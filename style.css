@@ -1,0 +1,18 @@
+/* style.css */
+
+body {
+  /* Set the maximum width of the content.
+     '90%' means it will take up 90% of the screen's width.
+     '1400px' is a cap, so on very large monitors it doesn't get TOO wide.
+     You can change these values to whatever you like! */
+  max-width: min(90%, 1400px);
+
+  /* This is the magic that keeps the content centered horizontally. */
+  margin: 0 auto;
+
+  /* For better readability on wider screens, you might want slightly larger text. */
+  font-size: 1.4em;
+
+  /* Taller line-height also helps with long lines of text. */
+  line-height: 1.6;
+}
